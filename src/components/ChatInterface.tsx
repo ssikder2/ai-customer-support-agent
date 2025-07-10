@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { chat } from "@/lib/chat";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   id: string;
@@ -59,7 +60,7 @@ export function ChatInterface() {
   };
 
   return (
-    <div className="flex flex-col h-96">
+    <div className="flex flex-col h-[48rem]">
       {/* Messages */}
       <div className="flex-1 overflow-y-auto space-y-4 mb-4">
         {messages.map((message) => (
@@ -67,12 +68,14 @@ export function ChatInterface() {
             key={message.id}
             className={`flex ${message.isUser ? "justify-end" : "justify-start"}`}
           >
-            <Card className={`max-w-xs p-3 ${
+            <Card className={`max-w-2xl p-5 ${
               message.isUser 
                 ? "bg-blue-600 text-white" 
                 : "bg-zinc-800 text-zinc-100"
             }`}>
-              <p className="text-sm">{message.text}</p>
+              <div className="markdown-body">
+                <ReactMarkdown>{message.text}</ReactMarkdown>
+              </div>
             </Card>
           </div>
         ))}

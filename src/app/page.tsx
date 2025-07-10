@@ -18,10 +18,10 @@ export default async function Home() {
 
           <div className="max-w-2xl">
             <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              AI Customer Support Agent
+              Aven Customer Support Agent
             </h1>
             <p className="mt-4 text-lg text-zinc-400">
-              Ask me anything about from how do Aven services work to what exactly are HELOCs.
+              Ask me anything about from "How does Aven work?" to "What is a HELOC?".
             </p>
           </div>
         </div>

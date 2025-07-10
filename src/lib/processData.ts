@@ -8,8 +8,9 @@ export const processData = async (scrapedContent: ScrapedContent) => {
     const processedChunks = processScrapedContent(scrapedContent);
     const embeddings = await Promise.all(processedChunks.map(chunk => embed(chunk.metadata.content)));
     const vectorChunks = processedChunks.map((chunk, index) => ({
-        ...chunk,
+        id: chunk.id,
         values: embeddings[index],
+        metadata: chunk.metadata,
     }));
     await index.upsert(vectorChunks);
     console.log("Data processed and stored in Pinecone");

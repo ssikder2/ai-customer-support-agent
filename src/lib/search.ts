@@ -10,6 +10,7 @@ export const search = async (query: string) => {
   const results = await index.query({
     vector: queryEmbedding,
     topK: 3,
+    includeMetadata: true,
   });
   
   console.log("📊 Search results:", {
