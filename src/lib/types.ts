@@ -32,3 +32,13 @@ export interface ProcessedChunk {
     wordCount: number;
   };
 }
+
+export function convertExaResultToScrapedContent(result: any): ScrapedContent {
+  return {
+    url: result.url,
+    title: result.title || result.url,
+    content: result.text || result.content,
+    source: result.url.includes('aven.com') ? 'aven' : 'heloc',
+    scrapedAt: new Date(),
+  };
+}

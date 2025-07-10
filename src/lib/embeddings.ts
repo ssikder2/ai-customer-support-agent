@@ -6,8 +6,15 @@ const openai = new OpenAI({
 });
 
 export const embed = async (text: string) => {
-  const response = await openai.embeddings.create({
-    model: "text-embedding-3-small",
-    input: text,
-  });
+  try {
+    const response = await openai.embeddings.create({
+        model: "text-embedding-3-small",
+        input: text,
+    });
+
+    return response.data[0].embedding;
+  } catch (error) {
+    console.error("Error embedding text:", error);
+    throw error;
+  }
 }
