@@ -9,6 +9,8 @@ const logger = new Logger("Config:Env");
 const envSchema = z.object({
   NODE_ENV: z.string(),
   NEXT_PUBLIC_APP_URL: z.string(),
+  NEXT_PUBLIC_VAPI_API_KEY: z.string().min(1, "Vapi API key is required"),
+  NEXT_PUBLIC_VAPI_ASSISTANT_ID: z.string().min(1, "Vapi assistant ID is required"),
   EXA_API_KEY: z.string().min(1, "Exa API key is required"),
   OPENAI_API_KEY: z.string().optional(),
   PINECONE_API_KEY: z.string().min(1, "Pinecone API key is required"),
@@ -22,6 +24,8 @@ const validateEnv = () => {
     const env = {
       NODE_ENV: process.env.NODE_ENV,
       NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+      NEXT_PUBLIC_VAPI_API_KEY: process.env.NEXT_PUBLIC_VAPI_API_KEY,
+      NEXT_PUBLIC_VAPI_ASSISTANT_ID: process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID,
       EXA_API_KEY: process.env.EXA_API_KEY,
       OPENAI_API_KEY: process.env.OPENAI_API_KEY,
       PINECONE_API_KEY: process.env.PINECONE_API_KEY,

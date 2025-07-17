@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { chat } from "@/lib/chat";
 import ReactMarkdown from "react-markdown";
+import VapiWidget from "./VapiWidget";
 
 interface Message {
   id: string;
@@ -101,6 +102,10 @@ export function ChatInterface() {
           Send
         </Button>
       </form>
+      <VapiWidget
+        apiKey={process.env.NEXT_PUBLIC_VAPI_API_KEY ?? ""}
+        assistantId={process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID ?? ""}
+      />
     </div>
   );
 } 

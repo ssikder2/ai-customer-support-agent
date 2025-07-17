@@ -9,7 +9,7 @@ export default async function Home() {
         <div className="flex flex-col items-center justify-center space-y-8 text-center">
           <Image
             className="dark:invert"
-            src="/next.svg"
+            src="/aven-logo.png"
             alt="Next.js Logo"
             width={180}
             height={38}
@@ -18,7 +18,7 @@ export default async function Home() {
 
           <div className="max-w-2xl">
             <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Aven Customer Support Agent
+              Customer Support
             </h1>
             <p className="mt-4 text-lg text-zinc-400">
               Ask me anything about from "How does Aven work?" to "What is a HELOC?".
