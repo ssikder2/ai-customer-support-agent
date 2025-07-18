@@ -1,5 +1,7 @@
 # AI Customer Support Agent
 
+**🌐 [Live Demo](https://ai-customer-support-agent-mlvv.vercel.app/)**
+
 A voice-enabled AI customer support agent for Aven, built with Next.js, Vapi for voice interactions, OpenAI for natural language processing, and Pinecone for intelligent search and context retrieval.
 
 ## Features
