@@ -12,9 +12,10 @@ const envSchema = z.object({
   NEXT_PUBLIC_VAPI_API_KEY: z.string().min(1, "Vapi API key is required"),
   NEXT_PUBLIC_VAPI_ASSISTANT_ID: z.string().min(1, "Vapi assistant ID is required"),
   EXA_API_KEY: z.string().min(1, "Exa API key is required"),
-  OPENAI_API_KEY: z.string().optional(),
+  OPENAI_API_KEY: z.string().min(1, "OpenAI API key is required"),
   PINECONE_API_KEY: z.string().min(1, "Pinecone API key is required"),
   PINECONE_INDEX_NAME: z.string().min(1, "Pinecone index name is required"),
+  PINECONE_ENVIRONMENT: z.string().min(1, "Pinecone environment is required"),
 });
 
 // Function to validate environment variables
@@ -30,6 +31,7 @@ const validateEnv = () => {
       OPENAI_API_KEY: process.env.OPENAI_API_KEY,
       PINECONE_API_KEY: process.env.PINECONE_API_KEY,
       PINECONE_INDEX_NAME: process.env.PINECONE_INDEX_NAME,
+      PINECONE_ENVIRONMENT: process.env.PINECONE_ENVIRONMENT,
     };
     const parsed = envSchema.parse(env);
     logger.info("Environment variables validated successfully");
