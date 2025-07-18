@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
   const response = await chat(query);
 
   const content =
-    (response as any)?.choices?.[0]?.message?.content ??
+    (response as { choices?: Array<{ message?: { content?: string } }> })?.choices?.[0]?.message?.content ??
     "Sorry, I couldn't process your request. Please try again.";
 
   return NextResponse.json({ response: content });

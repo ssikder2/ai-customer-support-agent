@@ -21,7 +21,7 @@ export default async function Home() {
               Customer Support
             </h1>
             <p className="mt-4 text-lg text-zinc-400">
-              Ask me anything about from "How does Aven work?" to "What is a HELOC?".
+              Ask me anything from &ldquo;How does Aven work?&rdquo; to &ldquo;What is a HELOC?&rdquo;.
             </p>
           </div>
         </div>

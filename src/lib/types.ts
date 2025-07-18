@@ -33,11 +33,11 @@ export interface ProcessedChunk {
   };
 }
 
-export function convertExaResultToScrapedContent(result: any): ScrapedContent {
+export function convertExaResultToScrapedContent(result: { url: string; title?: string | null; text?: string; content?: string }): ScrapedContent {
   return {
     url: result.url,
     title: result.title || result.url,
-    content: result.text || result.content,
+    content: result.text || result.content || '',
     source: result.url.includes('aven.com') ? 'aven' : 'heloc',
     scrapedAt: new Date(),
   };

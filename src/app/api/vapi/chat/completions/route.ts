@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import OpenAI from "openai";
-import { env } from "@/config/env";
 import { chat } from "@/lib/chat";
-
-const openai = new OpenAI({ apiKey: env.OPENAI_API_KEY });
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,16 +12,8 @@ export async function POST(request: NextRequest) {
     });
     
     const {
-      model,
       messages,
-      max_tokens,
-      temperature,
       stream,
-      call,
-      assistant,
-      metadata,
-      timestamp,
-      ...restParams
     } = body;
 
     if (stream) {
@@ -33,7 +21,7 @@ export async function POST(request: NextRequest) {
       console.log("🔍 Streaming - Searching for:", lastUserMessage);
       
       // Use custom chat function with streaming
-      const completionStream = await chat(lastUserMessage || "", true) as any;
+      const completionStream = await chat(lastUserMessage || "", true) as AsyncIterable<{ choices?: Array<{ delta?: { content?: string } }> }>;
 
       const encoder = new TextEncoder();
       const stream = new ReadableStream({
@@ -63,7 +51,7 @@ export async function POST(request: NextRequest) {
       console.log("🔍 Searching for:", lastUserMessage);
       
       const response = await chat(lastUserMessage || "", false);
-      const responseObj = response as any;
+      const responseObj = response as { id?: string; model?: string; choices?: Array<{ message?: { content?: string } }> };
       console.log("✅ Response sent to Vapi:", {
         id: responseObj.id,
         model: responseObj.model,

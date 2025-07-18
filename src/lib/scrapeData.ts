@@ -3,7 +3,7 @@ import Exa from "exa-js"
 import { env } from "@/config/env"
 import { avenUrls, helocUrls } from "./urls"
 import { processData } from "./processData"
-import { ScrapedContent, convertExaResultToScrapedContent } from "./types"
+import { convertExaResultToScrapedContent } from "./types"
 
 const exa = new Exa(env.EXA_API_KEY);
 
