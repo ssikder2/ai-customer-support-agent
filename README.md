@@ -1,18 +1,22 @@
-# Next.js Template
+# AI Customer Support Agent
 
-This is a template repository showcasing Next.js Server Actions, React Server Components, and modern data fetching patterns. The project includes a Todo list implementation and examples of API integration with proper loading states and error handling.
+A voice-enabled AI customer support agent for Aven, built with Next.js, Vapi for voice interactions, OpenAI for natural language processing, and Pinecone for intelligent search and context retrieval.
 
 ## Features
 
-- **Todo List**: Server-side data mutations using Next.js Server Actions
-- **Data Fetching Example**: Demonstrates React Suspense and loading states
-- **Modern UI**: Built with Shadcn UI components and Tailwind CSS
-- **Error Handling**: Proper error boundaries and user feedback
-- **Type Safety**: Full TypeScript support
+- **Voice AI Assistant**: Real-time voice conversations using Vapi's voice AI platform
+- **Intelligent Search**: Context-aware responses using Pinecone vector database
+- **Custom Knowledge Base**: Searches through Aven's documentation and policies
+- **Dual Interface**: Both text chat and voice call capabilities
+- **Modern UI**: Clean, responsive interface built with Shadcn UI and Tailwind CSS
+- **Type Safety**: Full TypeScript support throughout the application
 
 ## Tech Stack
 
-- [Next.js](https://nextjs.org) - React framework
+- [Next.js](https://nextjs.org) - React framework with API routes
+- [Vapi](https://vapi.ai) - Voice AI platform for real-time conversations
+- [OpenAI](https://openai.com) - GPT-4 for natural language processing
+- [Pinecone](https://pinecone.io) - Vector database for semantic search
 - [Shadcn UI](https://ui.shadcn.com/) - Component library
 - [Tailwind CSS](https://tailwindcss.com) - Styling
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
@@ -24,44 +28,81 @@ This is a template repository showcasing Next.js Server Actions, React Server Co
 
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
 ```
 
-3. Set up your environment variables in the `.env` file.
+3. Set up your environment variables in the `.env` file:
+
+```env
+# OpenAI
+OPENAI_API_KEY=your_openai_api_key
+
+# Pinecone
+PINECONE_API_KEY=your_pinecone_api_key
+PINECONE_INDEX_NAME=your_index_name
+PINECONE_ENVIRONMENT=your_environment
+
+# Vapi
+NEXT_PUBLIC_VAPI_API_KEY=your_vapi_api_key
+NEXT_PUBLIC_VAPI_ASSISTANT_ID=your_assistant_id
+```
 
 4. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
+## How It Works
+
+### Voice AI Integration
+- Uses Vapi's web SDK for real-time voice conversations
+- Custom LLM endpoint at `/api/vapi/chat/completions` for context-aware responses
+- Streaming support for real-time voice interactions
+
+### Intelligent Search
+- Pinecone vector database stores Aven's documentation and policies
+- Semantic search finds relevant context for user queries
+- Custom prompt engineering for Aven-specific responses
+
+### Dual Interface
+- **Text Chat**: Traditional chat interface for typed questions
+- **Voice Call**: Voice widget for hands-free conversations
+
 ## Project Structure
 
-- `app/page.tsx` - Main page with Todo list implementation
-- `app/example/page.tsx` - Data fetching example with loading states
-- `app/actions/*` - Server Actions for data mutations
-- `components/ui/*` - Shadcn UI components
+- `src/app/api/vapi/chat/completions/route.ts` - Custom LLM endpoint for Vapi
+- `src/app/api/chat/route.ts` - Text chat API endpoint
+- `src/lib/chat.ts` - Core chat logic with Pinecone search
+- `src/lib/search.ts` - Pinecone search functionality
+- `src/components/ChatInterface.tsx` - Text chat interface
+- `src/components/VapiWidget.tsx` - Voice call widget
+- `src/components/ui/*` - Shadcn UI components
+
+## Configuration
+
+### Vapi Dashboard Setup
+1. Create a Vapi account and assistant
+2. Configure the assistant to use your custom LLM URL: `https://your-ngrok-url.ngrok-free.app/api/vapi/chat/completions`
+3. Set the assistant ID in your environment variables
+
+### Pinecone Setup
+1. Create a Pinecone index for your knowledge base
+2. Upload Aven's documentation and policies
+3. Configure the index name and environment in your environment variables
+
+## Deployment
+
+The application can be deployed on Vercel or any other Next.js-compatible platform. Make sure to:
+
+1. Set up all environment variables in your deployment platform
+2. Configure your Vapi assistant to use the production URL
+3. Ensure your Pinecone index is accessible from the deployment environment
 
 ## Learn More
 
-To learn more about the technologies used in this project:
-
+- [Vapi Documentation](https://docs.vapi.ai) - Learn about Vapi's voice AI platform
+- [OpenAI API Documentation](https://platform.openai.com/docs) - OpenAI API reference
+- [Pinecone Documentation](https://docs.pinecone.io) - Vector database guide
 - [Next.js Documentation](https://nextjs.org/docs) - Next.js features and API
-- [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions) - Learn about Next.js Server Actions
-- [Shadcn UI Documentation](https://ui.shadcn.com) - Learn about Shadcn UI components
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs) - Learn about Tailwind CSS
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
-
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
