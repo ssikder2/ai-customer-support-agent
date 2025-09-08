@@ -2,13 +2,12 @@
 
 import { signIn, getProviders } from "next-auth/react"
 import { useEffect, useState } from "react"
-import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
 export default function SignInPage() {
-  const [providers, setProviders] = useState<any>(null)
+  const [providers, setProviders] = useState<Record<string, any> | null>(null)
 
   useEffect(() => {
     const fetchProviders = async () => {
@@ -41,7 +40,7 @@ export default function SignInPage() {
 
           <div className="space-y-3">
             {providers && Object.keys(providers).length > 0 ? (
-              Object.values(providers).map((provider: any) => {
+              Object.values(providers).map((provider: { id: string; name: string }) => {
                 const getProviderStyle = (name: string) => {
                   switch (name.toLowerCase()) {
                     case 'google':
@@ -106,7 +105,7 @@ export default function SignInPage() {
 
           <div className="mt-6 text-center">
             <p className="text-sm text-[#6C757D]">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link href="/auth/signup" className="text-[#4ECDC4] hover:text-[#00A085] font-medium">
                 Sign up
               </Link>
