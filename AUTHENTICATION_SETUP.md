@@ -1,7 +1,7 @@
 # Authentication Setup Guide
 
 ## Overview
-DocuAgents uses NextAuth.js for authentication with social media providers (Google and GitHub).
+DocuAgents uses NextAuth.js for authentication with Google OAuth.
 
 ## Required Environment Variables
 
@@ -15,18 +15,14 @@ DATABASE_URL="file:./dev.db"
 NEXTAUTH_URL="http://localhost:3000"
 NEXTAUTH_SECRET="your-secret-key-change-this-in-production"
 
-# OAuth Providers (Optional - for social login)
+# OAuth Provider (Optional - for Google login)
 GOOGLE_CLIENT_ID="your-google-client-id"
 GOOGLE_CLIENT_SECRET="your-google-client-secret"
-LINKEDIN_CLIENT_ID="your-linkedin-client-id"
-LINKEDIN_CLIENT_SECRET="your-linkedin-client-secret"
-FACEBOOK_CLIENT_ID="your-facebook-client-id"
-FACEBOOK_CLIENT_SECRET="your-facebook-client-secret"
 ```
 
-## Setting up OAuth Providers
+## Setting up Google OAuth
 
-### Google OAuth Setup
+### For Local Development:
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a new project or select existing one
 3. Enable the Google+ API
@@ -34,18 +30,13 @@ FACEBOOK_CLIENT_SECRET="your-facebook-client-secret"
 5. Set authorized redirect URIs to: `http://localhost:3000/api/auth/callback/google`
 6. Copy the Client ID and Client Secret to your `.env` file
 
-### LinkedIn OAuth Setup
-1. Go to [LinkedIn Developer Portal](https://www.linkedin.com/developers/)
-2. Create a new app
-3. Add redirect URL: `http://localhost:3000/api/auth/callback/linkedin`
-4. Copy the Client ID and Client Secret to your `.env` file
-
-### Facebook OAuth Setup
-1. Go to [Facebook Developers](https://developers.facebook.com/)
-2. Create a new app
-3. Add Facebook Login product
-4. Set Valid OAuth Redirect URIs to: `http://localhost:3000/api/auth/callback/facebook`
-5. Copy the App ID and App Secret to your `.env` file
+### For Vercel Production:
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Select your existing project
+3. Go to "Credentials" → "OAuth 2.0 Client IDs"
+4. Edit your existing OAuth client
+5. Add authorized redirect URI: `https://your-app-name.vercel.app/api/auth/callback/google`
+6. Copy the Client ID and Client Secret to your Vercel environment variables
 
 ## Database Setup
 
@@ -64,11 +55,11 @@ npx prisma db push
 1. Start the development server: `npm run dev`
 2. Visit `http://localhost:3000/landing`
 3. Click "Get Started" or "Sign In"
-4. Try signing in with Google, LinkedIn, or Facebook (if configured)
+4. Try signing in with Google (if configured)
 
 ## Features
 
-- ✅ Social media authentication (Google, LinkedIn, Facebook)
+- ✅ Google OAuth authentication
 - ✅ Protected dashboard routes
 - ✅ User session management
 - ✅ Database integration with Prisma

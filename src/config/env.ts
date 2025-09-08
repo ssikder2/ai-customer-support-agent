@@ -21,10 +21,6 @@ const envSchema = z.object({
   NEXTAUTH_SECRET: z.string().optional(),
   GOOGLE_CLIENT_ID: z.string().optional(),
   GOOGLE_CLIENT_SECRET: z.string().optional(),
-  LINKEDIN_CLIENT_ID: z.string().optional(),
-  LINKEDIN_CLIENT_SECRET: z.string().optional(),
-  FACEBOOK_CLIENT_ID: z.string().optional(),
-  FACEBOOK_CLIENT_SECRET: z.string().optional(),
   DATABASE_URL: z.string().optional(),
 });
 
@@ -47,10 +43,6 @@ const validateEnv = () => {
       NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
       GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
       GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
-      LINKEDIN_CLIENT_ID: process.env.LINKEDIN_CLIENT_ID,
-      LINKEDIN_CLIENT_SECRET: process.env.LINKEDIN_CLIENT_SECRET,
-      FACEBOOK_CLIENT_ID: process.env.FACEBOOK_CLIENT_ID,
-      FACEBOOK_CLIENT_SECRET: process.env.FACEBOOK_CLIENT_SECRET,
       DATABASE_URL: process.env.DATABASE_URL,
     };
     const parsed = envSchema.parse(env);
