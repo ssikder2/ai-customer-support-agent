@@ -16,6 +16,16 @@ const envSchema = z.object({
   PINECONE_API_KEY: z.string().min(1, "Pinecone API key is required"),
   PINECONE_INDEX_NAME: z.string().min(1, "Pinecone index name is required"),
   PINECONE_ENVIRONMENT: z.string().min(1, "Pinecone environment is required"),
+  // Authentication
+  NEXTAUTH_URL: z.string().optional(),
+  NEXTAUTH_SECRET: z.string().optional(),
+  GOOGLE_CLIENT_ID: z.string().optional(),
+  GOOGLE_CLIENT_SECRET: z.string().optional(),
+  LINKEDIN_CLIENT_ID: z.string().optional(),
+  LINKEDIN_CLIENT_SECRET: z.string().optional(),
+  FACEBOOK_CLIENT_ID: z.string().optional(),
+  FACEBOOK_CLIENT_SECRET: z.string().optional(),
+  DATABASE_URL: z.string().optional(),
 });
 
 // Function to validate environment variables
@@ -32,6 +42,16 @@ const validateEnv = () => {
       PINECONE_API_KEY: process.env.PINECONE_API_KEY,
       PINECONE_INDEX_NAME: process.env.PINECONE_INDEX_NAME,
       PINECONE_ENVIRONMENT: process.env.PINECONE_ENVIRONMENT,
+      // Authentication
+      NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+      NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+      GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+      GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+      LINKEDIN_CLIENT_ID: process.env.LINKEDIN_CLIENT_ID,
+      LINKEDIN_CLIENT_SECRET: process.env.LINKEDIN_CLIENT_SECRET,
+      FACEBOOK_CLIENT_ID: process.env.FACEBOOK_CLIENT_ID,
+      FACEBOOK_CLIENT_SECRET: process.env.FACEBOOK_CLIENT_SECRET,
+      DATABASE_URL: process.env.DATABASE_URL,
     };
     const parsed = envSchema.parse(env);
     logger.info("Environment variables validated successfully");

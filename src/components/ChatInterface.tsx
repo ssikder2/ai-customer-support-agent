@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 
 import ReactMarkdown from "react-markdown";
 import VapiWidget from "./VapiWidget";
+import { getCompanyConfig } from "@/lib/companyConfig";
 
 interface Message {
   id: string;
@@ -19,6 +20,7 @@ export function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const companyConfig = getCompanyConfig();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -94,7 +96,7 @@ export function ChatInterface() {
         <Input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask me anything about Aven services or HELOCs..."
+          placeholder={`Ask me anything about ${companyConfig.name}'s services...`}
           disabled={isLoading}
           className="flex-1"
         />
