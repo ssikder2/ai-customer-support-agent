@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
 export default function SignInPage() {
-  const [providers, setProviders] = useState<Record<string, any> | null>(null)
+  const [providers, setProviders] = useState<Record<string, { id: string; name: string }> | null>(null)
 
   useEffect(() => {
     const fetchProviders = async () => {

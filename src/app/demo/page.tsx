@@ -26,7 +26,7 @@ export default async function DemoPage() {
               {companyConfig.name} Customer Support
             </h1>
             <p className="mt-4 text-lg text-zinc-400">
-              Ask me anything about {companyConfig.name}'s services and support.
+              Ask me anything about {companyConfig.name}&apos;s services and support.
             </p>
           </div>
         </div>

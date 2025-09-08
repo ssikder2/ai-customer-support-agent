@@ -3,6 +3,7 @@
 import { useSession, signOut } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { LogOut, Plus, Settings, BarChart3, MessageSquare } from "lucide-react"
@@ -50,9 +51,11 @@ export default function DashboardPage() {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
                 {session.user?.image && (
-                  <img
+                  <Image
                     src={session.user.image}
                     alt={session.user.name || "User"}
+                    width={32}
+                    height={32}
                     className="h-8 w-8 rounded-full"
                   />
                 )}
