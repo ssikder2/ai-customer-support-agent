@@ -50,14 +50,23 @@ export default function DashboardPage() {
             
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
-                {session.user?.image && (
+                {session.user?.image ? (
                   <Image
                     src={session.user.image}
                     alt={session.user.name || "User"}
                     width={32}
                     height={32}
                     className="h-8 w-8 rounded-full"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
                   />
+                ) : (
+                  <div className="h-8 w-8 rounded-full bg-[#4ECDC4] flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">
+                      {session.user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                    </span>
+                  </div>
                 )}
                 <span className="text-[#2D2D2D] font-medium">{session.user?.name}</span>
               </div>
