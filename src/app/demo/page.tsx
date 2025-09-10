@@ -70,7 +70,7 @@ export default function DemoPage() {
                 <h3 className="text-lg font-semibold text-[#2D2D2D] mb-2">Demo: Aven.com Customer Support</h3>
                 <p className="text-[#2D2D2D] text-sm leading-relaxed">
                   This demo showcases how DocuAgents works with <strong>Aven.com</strong>, a home equity line of credit platform. 
-                  The AI has been trained on Aven's documentation and can answer questions about their HELOC services, 
+                  The AI has been trained on Aven&apos;s documentation and can answer questions about their HELOC services, 
                   application process, rates, and customer support. Try asking about loan terms, eligibility requirements, 
                   or how to apply for a home equity line of credit.
                 </p>
@@ -117,8 +117,8 @@ export default function DemoPage() {
             <div className="mb-4">
               <h3 className="text-lg font-semibold text-[#2D2D2D] mb-2">Try the AI Assistant</h3>
               <p className="text-[#2D2D2D] text-sm">
-                Ask questions about Aven's HELOC services, application process, rates, or customer support. 
-                The AI will respond based on Aven's documentation.
+                Ask questions about Aven&apos;s HELOC services, application process, rates, or customer support. 
+                The AI will respond based on Aven&apos;s documentation.
               </p>
             </div>
             <ChatInterface />

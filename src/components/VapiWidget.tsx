@@ -14,8 +14,6 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
   const [vapi, setVapi] = useState<Vapi | null>(null);
   const [isConnected, setIsConnected] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [isConnecting, setIsConnecting] = useState(false);
-  const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
     const vapiInstance = new Vapi(apiKey);

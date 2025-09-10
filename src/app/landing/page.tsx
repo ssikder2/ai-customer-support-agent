@@ -221,7 +221,7 @@ export default function LandingPage() {
                 </h3>
                 <p className="text-lg text-[#6C757D] mb-8 max-w-2xl mx-auto">
                   This demo showcases how DocuAgents works with real documentation. 
-                  The AI has been trained on Aven's HELOC services and can answer questions 
+                  The AI has been trained on Aven&apos;s HELOC services and can answer questions 
                   about loan terms, eligibility, and application processes.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -251,7 +251,7 @@ export default function LandingPage() {
               Pricing Coming Soon
             </h2>
             <p className="mt-4 text-lg text-[#6C757D]">
-              We're finalizing our pricing plans. Get early access and special launch pricing.
+              We&apos;re finalizing our pricing plans. Get early access and special launch pricing.
             </p>
             <div className="mt-8">
               <Button size="lg" className="bg-[#4ECDC4] hover:bg-[#00A085] text-white px-8 py-3" asChild>
