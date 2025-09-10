@@ -48,10 +48,44 @@ export default function DemoPage() {
             <h1 className="text-3xl font-bold tracking-tight text-[#2D2D2D] sm:text-4xl">
               See DocuAgents in Action
             </h1>
-            <p className="mt-4 text-lg text-[#6C757D] max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-[#2D2D2D] max-w-2xl mx-auto">
               Try our AI customer support agent powered by your documentation. 
               Ask questions about products, services, or support topics.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Aven Context Section */}
+      <section className="py-8 bg-white">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#F8F9FA] rounded-lg p-6 border border-gray-200">
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <div className="h-12 w-12 rounded-lg bg-[#4ECDC4] flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">A</span>
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-[#2D2D2D] mb-2">Demo: Aven.com Customer Support</h3>
+                <p className="text-[#2D2D2D] text-sm leading-relaxed">
+                  This demo showcases how DocuAgents works with <strong>Aven.com</strong>, a home equity line of credit platform. 
+                  The AI has been trained on Aven's documentation and can answer questions about their HELOC services, 
+                  application process, rates, and customer support. Try asking about loan terms, eligibility requirements, 
+                  or how to apply for a home equity line of credit.
+                </p>
+                <div className="mt-3">
+                  <a 
+                    href="https://aven.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#4ECDC4] hover:text-[#00A085] text-sm font-medium"
+                  >
+                    Visit Aven.com →
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -62,15 +96,15 @@ export default function DemoPage() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div className="flex items-center justify-center space-x-2 text-center">
               <Zap className="h-5 w-5 text-[#4ECDC4]" />
-              <span className="text-sm text-[#6C757D]">Instant responses</span>
+              <span className="text-sm text-[#2D2D2D] font-medium">Instant responses</span>
             </div>
             <div className="flex items-center justify-center space-x-2 text-center">
               <Clock className="h-5 w-5 text-[#4ECDC4]" />
-              <span className="text-sm text-[#6C757D]">24/7 availability</span>
+              <span className="text-sm text-[#2D2D2D] font-medium">24/7 availability</span>
             </div>
             <div className="flex items-center justify-center space-x-2 text-center">
               <Users className="h-5 w-5 text-[#4ECDC4]" />
-              <span className="text-sm text-[#6C757D]">Always helpful</span>
+              <span className="text-sm text-[#2D2D2D] font-medium">Always helpful</span>
             </div>
           </div>
         </div>
@@ -82,9 +116,9 @@ export default function DemoPage() {
           <Card className="p-6 border-0 shadow-lg">
             <div className="mb-4">
               <h3 className="text-lg font-semibold text-[#2D2D2D] mb-2">Try the AI Assistant</h3>
-              <p className="text-[#6C757D] text-sm">
-                Ask questions about our services, pricing, or how to get started. 
-                The AI will respond based on our documentation.
+              <p className="text-[#2D2D2D] text-sm">
+                Ask questions about Aven's HELOC services, application process, rates, or customer support. 
+                The AI will respond based on Aven's documentation.
               </p>
             </div>
             <ChatInterface />
@@ -98,7 +132,7 @@ export default function DemoPage() {
           <h2 className="text-2xl font-bold text-[#2D2D2D] sm:text-3xl">
             Ready to Create Your Own AI Agent?
           </h2>
-          <p className="mt-4 text-lg text-[#6C757D]">
+          <p className="mt-4 text-lg text-[#2D2D2D]">
             Connect your documentation and deploy your own intelligent support system in minutes.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -111,7 +145,7 @@ export default function DemoPage() {
               <a href="/landing">Learn More</a>
             </Button>
           </div>
-          <p className="mt-4 text-sm text-[#6C757D]">
+          <p className="mt-4 text-sm text-[#2D2D2D]">
             No credit card required • Setup in 5 minutes
           </p>
         </div>

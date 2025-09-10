@@ -45,13 +45,13 @@ export default function LandingPage() {
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" className="bg-[#4ECDC4] hover:bg-[#00A085] text-white px-8 py-3" asChild>
-                <a href="/auth/signup">
-                  Start Free Trial
+                <a href="/demo">
+                  Try Live Demo
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="border-[#4ECDC4] text-[#4ECDC4] hover:bg-[#E8F8F5] px-8 py-3" asChild>
-                <a href="/demo">Watch Demo</a>
+                <a href="/auth/signup">Get Early Access</a>
               </Button>
             </div>
             <p className="mt-4 text-sm text-[#6C757D]">
@@ -198,114 +198,72 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* Demo Section */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-[#2D2D2D] sm:text-4xl">
-              Simple, Transparent Pricing
+              See DocuAgents in Action
             </h2>
             <p className="mt-4 text-lg text-[#6C757D]">
-              Start free, scale as you grow
+              Try our live demo and experience the power of AI-powered customer support
             </p>
           </div>
           
-          <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <Card className="p-8 border-2 border-gray-200">
+          <div className="mt-16">
+            <Card className="p-8 border-0 shadow-xl bg-gradient-to-br from-[#F8F9FA] to-white">
               <div className="text-center">
-                <h3 className="text-xl font-semibold text-[#2D2D2D]">Starter</h3>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-[#2D2D2D]">$29</span>
-                  <span className="text-[#6C757D]">/month</span>
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#4ECDC4] text-white text-2xl font-bold mb-6">
+                  🎯
                 </div>
-                <p className="mt-2 text-[#6C757D]">1,000 conversations</p>
-                <ul className="mt-6 space-y-3 text-left">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">Basic chat widget</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">Website scraping</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">Email support</span>
-                  </li>
-                </ul>
-                <Button className="mt-8 w-full bg-[#4ECDC4] hover:bg-[#00A085] text-white" asChild>
-                  <a href="/auth/signup">Start Free Trial</a>
-                </Button>
+                <h3 className="text-2xl font-semibold text-[#2D2D2D] mb-4">
+                  Live Demo: Aven.com Customer Support
+                </h3>
+                <p className="text-lg text-[#6C757D] mb-8 max-w-2xl mx-auto">
+                  This demo showcases how DocuAgents works with real documentation. 
+                  The AI has been trained on Aven's HELOC services and can answer questions 
+                  about loan terms, eligibility, and application processes.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" className="bg-[#4ECDC4] hover:bg-[#00A085] text-white px-8 py-3" asChild>
+                    <a href="/demo">
+                      Try Live Demo
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-[#4ECDC4] text-[#4ECDC4] hover:bg-[#E8F8F5] px-8 py-3" asChild>
+                    <a href="https://aven.com" target="_blank" rel="noopener noreferrer">
+                      Visit Aven.com
+                    </a>
+                  </Button>
+                </div>
               </div>
             </Card>
+          </div>
+        </div>
+      </section>
 
-            <Card className="p-8 border-2 border-[#4ECDC4] relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-[#4ECDC4] text-white px-4 py-1 rounded-full text-sm font-medium">
-                  Most Popular
-                </span>
-              </div>
-              <div className="text-center">
-                <h3 className="text-xl font-semibold text-[#2D2D2D]">Professional</h3>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-[#2D2D2D]">$99</span>
-                  <span className="text-[#6C757D]">/month</span>
-                </div>
-                <p className="mt-2 text-[#6C757D]">10,000 conversations</p>
-                <ul className="mt-6 space-y-3 text-left">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">Advanced chat widget</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">File uploads</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">Analytics dashboard</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">Priority support</span>
-                  </li>
-                </ul>
-                <Button className="mt-8 w-full bg-[#4ECDC4] hover:bg-[#00A085] text-white" asChild>
-                  <a href="/auth/signup">Start Free Trial</a>
-                </Button>
-              </div>
-            </Card>
-
-            <Card className="p-8 border-2 border-gray-200">
-              <div className="text-center">
-                <h3 className="text-xl font-semibold text-[#2D2D2D]">Enterprise</h3>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-[#2D2D2D]">Custom</span>
-                </div>
-                <p className="mt-2 text-[#6C757D]">Unlimited conversations</p>
-                <ul className="mt-6 space-y-3 text-left">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">Custom integrations</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">Dedicated support</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">SLA guarantees</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#4ECDC4] mr-2" />
-                    <span className="text-[#6C757D]">On-premise option</span>
-                  </li>
-                </ul>
-                <Button className="mt-8 w-full bg-[#4ECDC4] hover:bg-[#00A085] text-white">
-                  Contact Sales
-                </Button>
-              </div>
-            </Card>
+      {/* Coming Soon */}
+      <section className="py-20 bg-[#F8F9FA]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-[#2D2D2D] sm:text-4xl">
+              Pricing Coming Soon
+            </h2>
+            <p className="mt-4 text-lg text-[#6C757D]">
+              We're finalizing our pricing plans. Get early access and special launch pricing.
+            </p>
+            <div className="mt-8">
+              <Button size="lg" className="bg-[#4ECDC4] hover:bg-[#00A085] text-white px-8 py-3" asChild>
+                <a href="/auth/signup">
+                  Get Early Access
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+            <p className="mt-4 text-sm text-[#6C757D]">
+              Be the first to know when we launch
+            </p>
           </div>
         </div>
       </section>
@@ -315,21 +273,24 @@ export default function LandingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
-              Ready to Transform Your Customer Support?
+              Ready to See DocuAgents in Action?
             </h2>
             <p className="mt-4 text-lg text-gray-300">
-              Join hundreds of companies already using DocuAgents to provide better customer support
+              Try our live demo and experience the power of AI-powered customer support
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-[#4ECDC4] hover:bg-[#00A085] text-white px-8 py-3" asChild>
-                <a href="/auth/signup">
-                  Start Your Free Trial
+                <a href="/demo">
+                  Try Live Demo
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#2D2D2D] px-8 py-3" asChild>
+                <a href="/auth/signup">Get Early Access</a>
+              </Button>
             </div>
             <p className="mt-4 text-sm text-gray-400">
-              No credit card required • 14-day free trial
+              No signup required for demo • Get early access for launch pricing
             </p>
           </div>
         </div>

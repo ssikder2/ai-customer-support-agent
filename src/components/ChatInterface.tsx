@@ -73,8 +73,8 @@ export function ChatInterface() {
           >
             <Card className={`max-w-2xl p-5 ${
               message.isUser 
-                ? "bg-blue-600 text-white" 
-                : "bg-zinc-800 text-zinc-100"
+                ? "bg-[#4ECDC4] text-white" 
+                : "bg-white text-[#2D2D2D] border border-gray-200"
             }`}>
               <div className="markdown-body">
                 <ReactMarkdown>{message.text}</ReactMarkdown>
@@ -84,7 +84,7 @@ export function ChatInterface() {
         ))}
         {isLoading && (
           <div className="flex justify-start">
-            <Card className="bg-zinc-800 text-zinc-100 max-w-xs p-3">
+            <Card className="bg-white text-[#2D2D2D] border border-gray-200 max-w-xs p-3">
               <p className="text-sm">Typing...</p>
             </Card>
           </div>
@@ -92,22 +92,30 @@ export function ChatInterface() {
       </div>
 
       {/* Input Form */}
-      <form onSubmit={handleSubmit} className="flex gap-2">
-        <Input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder={`Ask me anything about ${companyConfig.name}'s services...`}
-          disabled={isLoading}
-          className="flex-1"
-        />
-        <Button type="submit" disabled={isLoading || !input.trim()}>
-          Send
-        </Button>
+      <form onSubmit={handleSubmit} className="flex gap-2 mt-4">
+        <div className="flex-1 relative">
+          <Input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={`Ask me anything about ${companyConfig.name}'s services...`}
+            disabled={isLoading}
+            className="pr-20 h-12 text-[#2D2D2D] placeholder:text-[#6C757D] border-gray-300 focus:border-[#4ECDC4] focus:ring-[#4ECDC4]"
+          />
+          <div className="absolute right-1 top-1 flex gap-1">
+            <VapiWidget
+              apiKey={process.env.NEXT_PUBLIC_VAPI_API_KEY ?? ""}
+              assistantId={process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID ?? ""}
+            />
+            <Button 
+              type="submit" 
+              disabled={isLoading || !input.trim()}
+              className="h-10 px-4 bg-[#4ECDC4] hover:bg-[#00A085] text-white"
+            >
+              {isLoading ? "..." : "Send"}
+            </Button>
+          </div>
+        </div>
       </form>
-      <VapiWidget
-        apiKey={process.env.NEXT_PUBLIC_VAPI_API_KEY ?? ""}
-        assistantId={process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID ?? ""}
-      />
     </div>
   );
 } 

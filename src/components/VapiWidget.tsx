@@ -14,6 +14,8 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
   const [vapi, setVapi] = useState<Vapi | null>(null);
   const [isConnected, setIsConnected] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
     const vapiInstance = new Vapi(apiKey);
@@ -41,7 +43,6 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
       setIsSpeaking(false);
     });
 
-
     vapiInstance.on('error', (error) => {
       console.error('Vapi error:', error);
     });
@@ -64,86 +65,31 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
   };
 
   return (
-    <div style={{
-      position: 'fixed',
-      bottom: '24px',
-      right: '24px',
-      zIndex: 1000,
-      fontFamily: 'Arial, sans-serif'
-    }}>
+    <div>
       {!isConnected ? (
         <button
           onClick={startCall}
-          style={{
-            background: '#12A594',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '50px',
-            padding: '16px 24px',
-            fontSize: '16px',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            boxShadow: '0 4px 12px rgba(18, 165, 148, 0.3)',
-            transition: 'all 0.3s ease',
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 6px 16px rgba(18, 165, 148, 0.4)';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 12px rgba(18, 165, 148, 0.3)';
-          }}
+          className="h-10 px-3 rounded-md bg-[#4ECDC4] hover:bg-[#00A085] text-white font-medium transition-colors"
+          title="Start voice chat"
         >
-          🎤 Talk to Assistant
+          🎤
         </button>
       ) : (
-        <div style={{
-          background: '#fff',
-          borderRadius: '12px',
-          padding: '20px',
-          width: '320px',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-          border: '1px solid #e1e5e9'
-        }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '16px'
-          }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px'
-            }}>
-              <div style={{
-                width: '12px',
-                height: '12px',
-                borderRadius: '50%',
-                background: isSpeaking ? '#ff4444' : '#12A594',
-                animation: isSpeaking ? 'pulse 1s infinite' : 'none'
-              }}></div>
-              <span style={{ fontWeight: 'bold', color: '#333' }}>
-                {isSpeaking ? 'Assistant Speaking...' : 'Listening...'}
-              </span>
-            </div>
-            <button
-              onClick={endCall}
-              style={{
-                background: '#ff4444',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '6px',
-                padding: '6px 12px',
-                fontSize: '12px',
-                cursor: 'pointer'
-              }}
-            >
-              End Call
-            </button>
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
+            <div className={`w-2 h-2 rounded-full ${
+              isSpeaking ? 'bg-red-500 animate-pulse' : 'bg-[#4ECDC4]'
+            }`}></div>
+            <span className="text-xs text-gray-600">
+              {isSpeaking ? 'Speaking...' : 'Listening...'}
+            </span>
           </div>
-          
+          <button
+            onClick={endCall}
+            className="h-10 px-3 rounded-md bg-red-500 hover:bg-red-600 text-white text-xs font-medium transition-colors"
+          >
+            End
+          </button>
         </div>
       )}
       
