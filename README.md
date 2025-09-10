@@ -204,3 +204,4 @@ This is a sophisticated AI customer support system that combines modern web tech
 - **Modern UI** - Clean, responsive design with dark theme
 - **Type Safety** - Full TypeScript coverage
 - **Scalable** - Vector database for efficient knowledge retrieval
+# Trigger deployment
