@@ -1,45 +1,121 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { ChatInterface } from "@/components/ChatInterface";
-import { getCompanyConfig } from "@/lib/companyConfig";
+import { ArrowLeft, MessageCircle, Zap, Clock, Users } from "lucide-react";
 
-export default async function DemoPage() {
-  const companyConfig = getCompanyConfig();
-  
+export default function DemoPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-900 to-black">
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="flex flex-col items-center justify-center space-y-8 text-center">
-          {companyConfig.logo && (
-            <Image
-              className="dark:invert"
-              src={companyConfig.logo}
-              alt={`${companyConfig.name} Logo`}
-              width={180}
-              height={38}
-              priority
-            />
-          )}
-
-          <div className="max-w-2xl">
-            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              {companyConfig.name} Customer Support
-            </h1>
-            <p className="mt-4 text-lg text-zinc-400">
-              Ask me anything about {companyConfig.name}&apos;s services and support.
-            </p>
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="mt-16">
-          <div className="overflow-hidden rounded-2xl bg-white/[0.05] shadow-xl ring-1 ring-white/[0.1]">
-            <div className="p-6">
-              <ChatInterface />
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="border-b border-gray-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <div className="flex items-center space-x-2">
+                  <div className="h-8 w-8 rounded-lg bg-[#4ECDC4] flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">DA</span>
+                  </div>
+                  <span className="text-xl font-bold text-[#2D2D2D]">DocuAgents</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Button variant="ghost" className="text-[#6C757D] hover:text-[#2D2D2D]" asChild>
+                <a href="/landing">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Home
+                </a>
+              </Button>
+              <Button className="bg-[#4ECDC4] hover:bg-[#00A085] text-white" asChild>
+                <a href="/auth/signup">Get Started</a>
+              </Button>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="bg-gradient-to-b from-[#F8F9FA] to-white py-12">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-6">
+              <div className="flex items-center space-x-2">
+                <MessageCircle className="h-8 w-8 text-[#4ECDC4]" />
+                <span className="text-2xl font-bold text-[#2D2D2D]">Live Demo</span>
+              </div>
+            </div>
+            <h1 className="text-3xl font-bold tracking-tight text-[#2D2D2D] sm:text-4xl">
+              See DocuAgents in Action
+            </h1>
+            <p className="mt-4 text-lg text-[#6C757D] max-w-2xl mx-auto">
+              Try our AI customer support agent powered by your documentation. 
+              Ask questions about products, services, or support topics.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Features */}
+      <section className="py-8 bg-white">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="flex items-center justify-center space-x-2 text-center">
+              <Zap className="h-5 w-5 text-[#4ECDC4]" />
+              <span className="text-sm text-[#6C757D]">Instant responses</span>
+            </div>
+            <div className="flex items-center justify-center space-x-2 text-center">
+              <Clock className="h-5 w-5 text-[#4ECDC4]" />
+              <span className="text-sm text-[#6C757D]">24/7 availability</span>
+            </div>
+            <div className="flex items-center justify-center space-x-2 text-center">
+              <Users className="h-5 w-5 text-[#4ECDC4]" />
+              <span className="text-sm text-[#6C757D]">Always helpful</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Chat Interface */}
+      <section className="py-8 bg-[#F8F9FA]">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <Card className="p-6 border-0 shadow-lg">
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold text-[#2D2D2D] mb-2">Try the AI Assistant</h3>
+              <p className="text-[#6C757D] text-sm">
+                Ask questions about our services, pricing, or how to get started. 
+                The AI will respond based on our documentation.
+              </p>
+            </div>
+            <ChatInterface />
+          </Card>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold text-[#2D2D2D] sm:text-3xl">
+            Ready to Create Your Own AI Agent?
+          </h2>
+          <p className="mt-4 text-lg text-[#6C757D]">
+            Connect your documentation and deploy your own intelligent support system in minutes.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button size="lg" className="bg-[#4ECDC4] hover:bg-[#00A085] text-white px-8 py-3" asChild>
+              <a href="/auth/signup">
+                Start Free Trial
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" className="border-[#4ECDC4] text-[#4ECDC4] hover:bg-[#E8F8F5] px-8 py-3" asChild>
+              <a href="/landing">Learn More</a>
+            </Button>
+          </div>
+          <p className="mt-4 text-sm text-[#6C757D]">
+            No credit card required • Setup in 5 minutes
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
