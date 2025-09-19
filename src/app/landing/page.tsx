@@ -48,9 +48,6 @@ export default function LandingPage() {
               </Button>
               <SubscriptionPopup />
             </div>
-            <p className="mt-4 text-sm text-[#6C757D]">
-              No credit card required • Setup in 5 minutes
-            </p>
           </div>
         </div>
       </section>
