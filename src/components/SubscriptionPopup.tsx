@@ -7,7 +7,7 @@ import { X } from "lucide-react";
 
 declare global {
   interface Window {
-    sender: any;
+    sender: (action: string, event: string, data?: { email: string; list: string }) => void;
   }
 }
 
@@ -100,8 +100,8 @@ export default function SubscriptionPopup() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-[#2D2D2D] mb-2">You're all set!</h3>
-            <p className="text-[#2D2D2D]">We'll notify you when DocuAgents launches.</p>
+            <h3 className="text-xl font-semibold text-[#2D2D2D] mb-2">You&apos;re all set!</h3>
+            <p className="text-[#2D2D2D]">We&apos;ll notify you when DocuAgents launches.</p>
           </div>
         ) : (
           <div>
