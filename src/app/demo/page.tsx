@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ChatInterface } from "@/components/ChatInterface";
+import SubscriptionPopup from "@/components/SubscriptionPopup";
 import { ArrowLeft, MessageCircle, Zap, Clock, Users } from "lucide-react";
 
 export default function DemoPage() {
@@ -12,12 +13,12 @@ export default function DemoPage() {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <div className="flex items-center space-x-2">
+                <a href="/landing" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
                   <div className="h-8 w-8 rounded-lg bg-[#4ECDC4] flex items-center justify-center">
                     <span className="text-white font-bold text-sm">DA</span>
                   </div>
                   <span className="text-xl font-bold text-[#2D2D2D]">DocuAgents</span>
-                </div>
+                </a>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -52,40 +53,6 @@ export default function DemoPage() {
               Try our AI customer support agent powered by your documentation. 
               Ask questions about products, services, or support topics.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Aven Context Section */}
-      <section className="py-8 bg-white">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#F8F9FA] rounded-lg p-6 border border-gray-200">
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <div className="h-12 w-12 rounded-lg bg-[#4ECDC4] flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">A</span>
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-[#2D2D2D] mb-2">Demo: Aven.com Customer Support</h3>
-                <p className="text-[#2D2D2D] text-sm leading-relaxed">
-                  This demo showcases how DocuAgents works with <strong>Aven.com</strong>, a home equity line of credit platform. 
-                  The AI has been trained on Aven&apos;s documentation and can answer questions about their HELOC services, 
-                  application process, rates, and customer support. Try asking about loan terms, eligibility requirements, 
-                  or how to apply for a home equity line of credit.
-                </p>
-                <div className="mt-3">
-                  <a 
-                    href="https://aven.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-[#4ECDC4] hover:text-[#00A085] text-sm font-medium"
-                  >
-                    Visit Aven.com →
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -126,6 +93,40 @@ export default function DemoPage() {
         </div>
       </section>
 
+      {/* Aven Context Section - Moved below chat */}
+      <section className="py-8 bg-white">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#F8F9FA] rounded-lg p-6 border border-gray-200">
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <div className="h-12 w-12 rounded-lg bg-[#4ECDC4] flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">A</span>
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-[#2D2D2D] mb-2">Demo: Aven.com Customer Support</h3>
+                <p className="text-[#2D2D2D] text-sm leading-relaxed">
+                  This demo showcases how DocuAgents works with <strong>Aven.com</strong>, a home equity line of credit platform. 
+                  The AI has been trained on Aven&apos;s documentation and can answer questions about their HELOC services, 
+                  application process, rates, and customer support. Try asking about loan terms, eligibility requirements, 
+                  or how to apply for a home equity line of credit.
+                </p>
+                <div className="mt-3">
+                  <a 
+                    href="https://aven.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#4ECDC4] hover:text-[#00A085] text-sm font-medium"
+                  >
+                    Visit Aven.com →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
@@ -136,17 +137,13 @@ export default function DemoPage() {
             Connect your documentation and deploy your own intelligent support system in minutes.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" className="bg-[#4ECDC4] hover:bg-[#00A085] text-white px-8 py-3" asChild>
-              <a href="/auth/signup">
-                Start Free Trial
-              </a>
-            </Button>
+            <SubscriptionPopup />
             <Button size="lg" variant="outline" className="border-[#4ECDC4] text-[#4ECDC4] hover:bg-[#E8F8F5] px-8 py-3" asChild>
               <a href="/landing">Learn More</a>
             </Button>
           </div>
           <p className="mt-4 text-sm text-[#2D2D2D]">
-            No credit card required • Setup in 5 minutes
+            Get notified when we launch • Early access for subscribers
           </p>
         </div>
       </section>

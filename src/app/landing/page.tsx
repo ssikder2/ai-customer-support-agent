@@ -11,12 +11,12 @@ export default function LandingPage() {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <div className="flex items-center space-x-2">
+                <a href="/landing" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
                   <div className="h-8 w-8 rounded-lg bg-[#4ECDC4] flex items-center justify-center">
                     <span className="text-white font-bold text-sm">DA</span>
                   </div>
                   <span className="text-xl font-bold text-[#2D2D2D]">DocuAgents</span>
-                </div>
+                </a>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -300,12 +300,12 @@ export default function LandingPage() {
       <footer className="bg-white border-t border-gray-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
-            <div className="flex items-center space-x-2">
+            <a href="/landing" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
               <div className="h-6 w-6 rounded bg-[#4ECDC4] flex items-center justify-center">
                 <span className="text-white font-bold text-xs">DA</span>
               </div>
               <span className="text-lg font-bold text-[#2D2D2D]">DocuAgents</span>
-            </div>
+            </a>
             <div className="flex items-center space-x-6">
               <a href="#" className="text-[#6C757D] hover:text-[#2D2D2D]">Privacy</a>
               <a href="#" className="text-[#6C757D] hover:text-[#2D2D2D]">Terms</a>
