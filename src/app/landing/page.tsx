@@ -299,7 +299,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="mt-8 text-center text-[#6C757D]">
-            <p>&copy; 2024 DocuAgents. All rights reserved.</p>
+            <p>&copy; 2025 DocuAgents. All rights reserved.</p>
           </div>
         </div>
       </footer>
