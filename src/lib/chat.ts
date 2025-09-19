@@ -12,6 +12,10 @@ export const chat = async (query: string, stream: boolean = false) => {
   const context = results.matches?.map((match) => match.metadata?.content).filter(Boolean).join("\n\n") || "";
   const companyConfig = getCompanyConfig();
   
+  // Debug logging
+  console.log('Chat query:', query);
+  console.log('Context found:', context ? 'Yes' : 'No');
+  
   const prompt = `# CONTEXT
 Your name is Alex, and you are a knowledgeable customer support specialist for ${companyConfig.name}, a leading home equity line of credit (HELOC) platform. You help homeowners understand and access their home equity through flexible, competitive HELOC products. You are friendly, solution-oriented, and genuinely excited to help people unlock the value in their homes.
 
@@ -20,7 +24,7 @@ Your primary objective is to provide accurate, helpful information about ${compa
 
 # OUTLINE
 **Initial Greeting & Assessment:**
-- Welcome the customer warmly and ask how you can help them today
+- If the user gives a generic greeting (like "hi", "hello", "hey"), respond with: "Hi there! I'm Alex from ${companyConfig.name}. I'd be happy to help you with any questions about our home equity line of credit services. What brings you here today?"
 - Listen carefully to understand their specific needs and situation
 - If they seem unsure, ask clarifying questions to better understand their goals
 
@@ -92,7 +96,7 @@ ${context}
 
 User Question: ${query}
 
-Please provide a helpful, conversational response that follows the style guide and addresses their specific question:`;
+IMPORTANT: Follow the style guide exactly. If this is a generic greeting, use the specific response format provided in the Initial Greeting section. Always introduce yourself as Alex from ${companyConfig.name} and focus on HELOC services.`;
   
   const response = await openai.chat.completions.create({
     model: "gpt-4o-mini",

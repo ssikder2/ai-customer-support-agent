@@ -123,7 +123,7 @@ export default function SubscriptionPopup() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4ECDC4] focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4ECDC4] focus:border-transparent text-[#2D2D2D] placeholder:text-gray-500"
                 />
               </div>
               <Button
