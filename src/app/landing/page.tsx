@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import SubscriptionPopup from "@/components/SubscriptionPopup";
 import { ArrowRight, CheckCircle, Clock, Zap, Users, Shield } from "lucide-react";
 
 export default function LandingPage() {
@@ -20,12 +21,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" className="text-[#6C757D] hover:text-[#2D2D2D]" asChild>
-                <a href="/auth/signin">Sign In</a>
-              </Button>
-              <Button className="bg-[#4ECDC4] hover:bg-[#00A085] text-white" asChild>
-                <a href="/auth/signup">Get Started</a>
-              </Button>
+              <SubscriptionPopup />
             </div>
           </div>
         </div>
@@ -50,9 +46,7 @@ export default function LandingPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-[#4ECDC4] text-[#4ECDC4] hover:bg-[#E8F8F5] px-8 py-3" asChild>
-                <a href="/auth/signup">Get Early Access</a>
-              </Button>
+              <SubscriptionPopup />
             </div>
             <p className="mt-4 text-sm text-[#6C757D]">
               No credit card required • Setup in 5 minutes
@@ -254,12 +248,7 @@ export default function LandingPage() {
               We&apos;re finalizing our pricing plans. Get early access and special launch pricing.
             </p>
             <div className="mt-8">
-              <Button size="lg" className="bg-[#4ECDC4] hover:bg-[#00A085] text-white px-8 py-3" asChild>
-                <a href="/auth/signup">
-                  Get Early Access
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+              <SubscriptionPopup />
             </div>
             <p className="mt-4 text-sm text-[#6C757D]">
               Be the first to know when we launch
@@ -285,9 +274,9 @@ export default function LandingPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#2D2D2D] px-8 py-3" asChild>
-                <a href="/auth/signup">Get Early Access</a>
-              </Button>
+              <div className="[&>button]:border-white [&>button]:text-white [&>button]:hover:bg-white [&>button]:hover:text-[#2D2D2D]">
+                <SubscriptionPopup />
+              </div>
             </div>
             <p className="mt-4 text-sm text-gray-400">
               No signup required for demo • Get early access for launch pricing

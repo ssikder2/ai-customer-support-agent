@@ -50,7 +50,10 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
     };
   }, [apiKey]);
 
-  const startCall = () => {
+  const startCall = (e?: React.MouseEvent) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+    console.log('Voice chat start button clicked');
     if (vapi) {
       vapi.start(assistantId);
     }
@@ -67,6 +70,7 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
       {!isConnected ? (
         <button
           onClick={startCall}
+          type="button"
           className="h-10 px-3 rounded-md bg-[#4ECDC4] hover:bg-[#00A085] text-white font-medium transition-colors"
           title="Start voice chat"
         >
